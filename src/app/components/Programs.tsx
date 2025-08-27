@@ -12,14 +12,24 @@ type ProgramBlock = {
   features: ProgramFeature[];
 };
 
+type Partner =
+  | string
+  | {
+      name: string;
+      forYou?: string;
+      forUs?: string;
+    };
+
 type ProgramsProps = {
   title?: string;
   domains: ProgramBlock;
   hosting: ProgramBlock;
   consulting: ProgramBlock;
-  partners?: string[];
+  partners?: Partner[];
   className?: string;
 };
+
+import { Globe, Server, Headset, HeartHandshake } from "lucide-react";
 
 export default function Programs({
   title = "Our Programs",
@@ -45,21 +55,39 @@ export default function Programs({
 
         {partners.length > 0 && (
           <div className="mt-8 grid gap-4">
-            {partners.map((p, i) => (
-              <details key={i} className="group ffc-card border-[5px] border-accent rounded-[20px] p-0 overflow-hidden">
-                <summary className="list-none cursor-pointer">
-                  <div className="flex items-center justify-between px-5 py-4">
-                    <div className="font-[var(--font-lato)] text-[36px] leading-[43px] text-black">{p}</div>
-                    <svg className="w-6 h-6 text-black transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                </summary>
-                <div className="px-5 pb-5 font-[var(--font-lato)] text-[20px] leading-[26px] text-black/80">
-                  {/* Optional partner description can go here. */}
-                </div>
-              </details>
-            ))}
+            {partners.map((p, i) => {
+              const name = typeof p === "string" ? p : p.name;
+              const forYou = typeof p === "string" ? undefined : p.forYou;
+              const forUs = typeof p === "string" ? undefined : p.forUs;
+              return (
+                <details key={i} className="group ffc-card border-[5px] border-accent rounded-[20px] p-0 overflow-hidden">
+                  <summary className="list-none cursor-pointer">
+                    <div className="flex items-center justify-between px-5 py-4">
+                      <div className="font-[var(--font-lato)] text-[36px] leading-[43px] text-black">{name}</div>
+                      <svg className="w-6 h-6 text-black transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </summary>
+                  {(forYou || forUs) && (
+                    <div className="px-5 pb-5 font-[var(--font-lato)] text-[20px] leading-[26px] text-black/80">
+                      {forYou && (
+                        <div>
+                          <span className="font-semibold">For You: </span>
+                          <span>{forYou}</span>
+                        </div>
+                      )}
+                      {forUs && (
+                        <div className="mt-1">
+                          <span className="font-semibold">For Us: </span>
+                          <span>{forUs}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </details>
+              );
+            })}
           </div>
         )}
       </div>
@@ -68,12 +96,37 @@ export default function Programs({
 }
 
 function ProgramCard({ block, className }: { block: ProgramBlock; className?: string }) {
+  const iconType =
+    /domains/i.test(block.heading) ? "domains" :
+    /hosting/i.test(block.heading) ? "hosting" :
+    /consulting/i.test(block.heading) ? "consulting" : "default";
+
+  const Icon = () => {
+    if (iconType === "domains") {
+      return <Globe className="w-8 h-8 text-white" aria-hidden />;
+    }
+    if (iconType === "hosting") {
+      return <Server className="w-8 h-8 text-white" aria-hidden />;
+    }
+    if (iconType === "consulting") {
+      return <Headset className="w-8 h-8 text-white" aria-hidden />;
+    }
+    return <HeartHandshake className="w-8 h-8 text-white" aria-hidden />;
+  };
+
   return (
     <div className={className}>
-      <div className="text-center">
-        <h3 className="font-[var(--font-lato)] text-[36px] leading-[43px] text-black">{block.heading}</h3>
-        <p className="mt-3 font-[var(--font-lato)] text-[25px] leading-[30px] text-black max-w-4xl mx-auto">{block.description}</p>
-        <div className="mt-5">
+      <div>
+          <div className="flex items-start gap-4">
+          <div className="shrink-0 w-16 h-16 rounded-full bg-primary grid place-items-center border-4 border-white shadow">
+            <Icon />
+          </div>
+          <div>
+            <h3 className="font-[var(--font-lato)] text-[36px] leading-[43px] text-black text-left">{block.heading}</h3>
+            <p className="mt-3 font-[var(--font-lato)] text-[25px] leading-[30px] text-black max-w-4xl text-left">{block.description}</p>
+          </div>
+        </div>
+        <div className="mt-5 text-center">
           <a href={block.ctaHref} className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-8 py-4 text-[25px] leading-[30px] font-[var(--font-lato)]">
             {block.ctaLabel}
           </a>

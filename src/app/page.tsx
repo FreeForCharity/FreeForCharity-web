@@ -14,8 +14,9 @@ export default function Home() {
   return (
     <main>
       {/* Hero / Landing */}
-      <section className="bg-primary text-white">
-        <div className="ffc-container py-16 md:py-20">
+      <section className="bg-primary text-white relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute left-[-15%] md:left-[-10%] bottom-[14rem] md:bottom-[18rem] w-[220%] h-6 md:h-8 bg-white rotate-[-22deg] z-0" />
+        <div className="ffc-container relative z-10 py-16 md:py-20">
           <div className="grid gap-10 md:grid-cols-2 items-center">
             <div>
               <h1 className="font-[var(--font-faustina)] font-medium text-[48px] leading-[60px] md:text-[60px] md:leading-[72px]">
@@ -25,19 +26,19 @@ export default function Home() {
                 Connecting Students, Professionals, & Businesses with Charities in Need
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                <a href="#volunteer" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
                   Volunteer
                 </a>
-                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                <a href="#donate" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
                   Donate
                 </a>
-                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                <a href="#programs" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
                   Our Programs
                 </a>
               </div>
             </div>
             <div className="grid place-items-center">
-              <div className="w-[260px] h-[260px] md:w-[383px] md:h-[383px] rounded-full bg-white shadow-[0_6px_32px_rgba(0,0,0,0.16)]" />
+              <div className="w-[260px] h-[260px] md:w-[383px] md:h-[383px] rounded-full bg-white shadow-[0_6px_32px_rgba(0,0,0,0.16)] bg-[url('/web-app-manifest-512x512.png')] bg-no-repeat bg-center bg-contain" />
             </div>
           </div>
         </div>
@@ -56,7 +57,7 @@ export default function Home() {
             This charity for charities seeks to replace as many functions as possible that current nonprofits pay for to for-profit companies with free or at cost work from our campus, on site projects, or partnerships with other entities.
           </p>
           <div className="mt-6">
-            <a className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-6 py-3 text-[20px] font-[var(--font-lato)]">
+            <a href="#donate" className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-6 py-3 text-[20px] font-[var(--font-lato)]">
               Donate to Free For Charity
             </a>
           </div>
@@ -92,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Programs */}
-      <section className="py-16">
+      <section id="programs" className="py-16">
         <Programs
           domains={{
             heading: "FFC Domains",
@@ -106,9 +107,23 @@ export default function Home() {
                 forYou:
                   "Leverage a .org domain name to enhance your charity's credibility, trustworthiness, and online presence, making it easier to attract donors and supporters",
               },
-              { title: "Cloudflare DNS" },
-              { title: "Charity Email Address" },
-              { title: "Microsoft 365" },
+              {
+                title: "Cloudflare DNS",
+                forYou: "Faster website load times and enhanced security",
+                forUs: "Centralized management and automation tools.",
+              },
+              {
+                title: "Charity Email Address",
+                forYou:
+                  "Using a charity email address (e.g., yourname@yourcharity.org) enhances your organization's credibility and professionalism, making it easier to build trust with donors, volunteers, and stakeholders",
+                forUs:
+                  "We benefit by ensuring charities use professional email addresses, which helps maintain our servers' integrity and provides a more secure and reliable communication platform for our volunteers",
+              },
+              {
+                title: "Microsoft 365",
+                forYou: "Professional email and collaboration tools",
+                forUs: "Streamlined communication and support processes",
+              },
             ],
           }}
           hosting={{
@@ -123,9 +138,25 @@ export default function Home() {
                 forYou: "Easy-to-use, flexible content management for your website",
                 forUs: "Standardized platform for efficient support and management",
               },
-              { title: "InterServer US Based Hosting" },
-              { title: "WPMU DEV Plugins" },
-              { title: "Divi Design Builder" },
+              {
+                title: "InterServer US Based Hosting",
+                forYou:
+                  "No cost, US-based, shared hosting in New Jersey with chat support",
+                forUs:
+                  "Standardized DirectAdmin panel hosting and Softaculous software for WordPress install",
+              },
+              {
+                title: "WPMU DEV Plugins",
+                forYou: "Enterprise-grade security, performance, and management tools",
+                forUs: "Centralized management and monitoring of all partner websites",
+              },
+              {
+                title: "Divi Design Builder",
+                forYou:
+                  "Leverage Divi's visual drag-and-drop builder, pre-made layouts, and responsive editing tools to create and manage professional websites without needing coding skills.",
+                forUs:
+                  "Efficiently support charities with advanced web development tools and train our volunteers on cutting-edge technology, enhancing their technical skills and our service quality.",
+              },
             ],
           }}
           consulting={{
@@ -144,7 +175,23 @@ export default function Home() {
               },
             ],
           }}
-          partners={["VolunteerMatch", "TechSoup", "PayPal"]}
+          partners={[
+            {
+              name: "VolunteerMatch",
+              forYou: "Access to a large pool of potential volunteers",
+              forUs: "Validation of your active community engagement",
+            },
+            {
+              name: "TechSoup",
+              forYou: "Access to discounted software and technology resources",
+              forUs: "Additional validation of your non-profit status",
+            },
+            {
+              name: "PayPal",
+              forYou: "Easy, secure online donation processing",
+              forUs: "Standardized financial transaction system for all partners",
+            },
+          ]}
         />
       </section>
 

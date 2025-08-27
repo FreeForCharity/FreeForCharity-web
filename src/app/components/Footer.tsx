@@ -20,7 +20,7 @@ export default function Footer() {
             <ul className="space-y-2 font-[var(--font-faustina)] text-[17px] leading-[21px]">
               <li><a href="#" className="hover:underline">Home</a></li>
               <li><a href="#" className="hover:underline">About Us</a></li>
-              <li><a href="#" className="hover:underline">Donate</a></li>
+              <li><a href="#donate" className="hover:underline">Donate</a></li>
               <li><a href="#" className="hover:underline">Volunteer</a></li>
               <li><a href="#" className="hover:underline">Help For Charities</a></li>
               <li><a href="#" className="hover:underline">Pre-501c3 Onboarding</a></li>
@@ -102,7 +102,7 @@ export default function Footer() {
           <div className="flex items-center gap-6 font-[var(--font-lato)] text-[16px] leading-[19px]">
             <a href="#" className="hover:underline">Terms of use</a>
             <a href="#" className="hover:underline">Privacy policy</a>
-            <a href="#" className="hover:underline">Donation policy</a>
+            <a href="#donate" className="hover:underline">Donation policy</a>
           </div>
         </div>
       </div>

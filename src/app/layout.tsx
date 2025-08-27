@@ -3,6 +3,8 @@ import { Faustina, Fauna_One, Lato, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import DonationPopup from "./components/DonationPopup";
+import VolunteerPopup from "./components/VolunteerPopup";
 
 const faustina = Faustina({ subsets: ["latin"], weight: ["400","500"], variable: "--font-faustina" });
 const faunaOne = Fauna_One({ subsets: ["latin"], weight: "400", variable: "--font-fauna-one" });
@@ -25,6 +27,8 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
+        <DonationPopup />
+        <VolunteerPopup />
       </body>
     </html>
   );
