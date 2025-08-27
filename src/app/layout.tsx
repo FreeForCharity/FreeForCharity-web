@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Faustina, Fauna_One, Lato, Inter } from "next/font/google";
 import "./globals.css";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const faustina = Faustina({ subsets: ["latin"], weight: ["400","500"], variable: "--font-faustina" });
+const faunaOne = Fauna_One({ subsets: ["latin"], weight: "400", variable: "--font-fauna-one" });
+const lato = Lato({ subsets: ["latin"], weight: ["400","700"], variable: "--font-lato" });
+const inter = Inter({ subsets: ["latin"], weight: ["300","400","500"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${faustina.variable} ${faunaOne.variable} ${lato.variable} ${inter.variable} antialiased`}>
+        <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

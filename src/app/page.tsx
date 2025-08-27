@@ -1,103 +1,189 @@
-import Image from "next/image";
+import FAQ from "./components/FAQ";
+import { faqs } from "./data/faqs";
+import Team from "./components/Team";
+import { team } from "./data/team";
+import Testimonials from "./components/Testimonials";
+import { testimonials } from "./data/testimonials";
+import Results from "./components/Results";
+import VolunteerCTA from "./components/VolunteerCTA";
+import GetStarted from "./components/GetStarted";
+import Programs from "./components/Programs";
+import EndowmentFeatures from "./components/EndowmentFeatures";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      {/* Hero / Landing */}
+      <section className="bg-primary text-white">
+        <div className="ffc-container py-16 md:py-20">
+          <div className="grid gap-10 md:grid-cols-2 items-center">
+            <div>
+              <h1 className="font-[var(--font-faustina)] font-medium text-[48px] leading-[60px] md:text-[60px] md:leading-[72px]">
+                Welcome to Free For Charity
+              </h1>
+              <p className="mt-4 font-[var(--font-lato)] text-[20px] leading-6 md:text-[24px] md:leading-[29px]">
+                Connecting Students, Professionals, & Businesses with Charities in Need
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                  Volunteer
+                </a>
+                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                  Donate
+                </a>
+                <a className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
+                  Our Programs
+                </a>
+              </div>
+            </div>
+            <div className="grid place-items-center">
+              <div className="w-[260px] h-[260px] md:w-[383px] md:h-[383px] rounded-full bg-white shadow-[0_6px_32px_rgba(0,0,0,0.16)]" />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Support CTA */}
+      <section className="py-16">
+        <div className="ffc-container text-center">
+          <h2 className="font-[var(--font-faustina)] text-[40px] leading-[48px]">
+            Free For Charity has a simple mission with broad implications
+          </h2>
+          <p className="mt-4 font-[var(--font-lato)] text-[20px] leading-[30px] max-w-4xl mx-auto">
+            Reduce costs and increase revenues for nonprofits; putting that money back into their charitable mission where it belongs.
+          </p>
+          <p className="mt-3 font-[var(--font-lato)] text-[20px] leading-[30px] max-w-4xl mx-auto">
+            This charity for charities seeks to replace as many functions as possible that current nonprofits pay for to for-profit companies with free or at cost work from our campus, on site projects, or partnerships with other entities.
+          </p>
+          <div className="mt-6">
+            <a className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-6 py-3 text-[20px] font-[var(--font-lato)]">
+              Donate to Free For Charity
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Endowment Features */}
+      <section className="py-16">
+        <EndowmentFeatures
+          features={[
+            {
+              title: "Sustainable Funding",
+              body:
+                "The Endowment ensures that only the investment gains are used, providing a sustainable funding source for the Free For Charity Domain Program.",
+            },
+            {
+              title: "Long-Term Impact",
+              body:
+                "By supporting the Endowment, you contribute to a lasting legacy that will continuously support charities in need of digital resources.",
+            },
+            {
+              title: "Goal of $1,000,000",
+              body:
+                "Our target is to raise $1,000,000 to secure the future of the program, ensuring ongoing support for countless charities.",
+            },
+            {
+              title: "Be a Champion for Change",
+              body:
+                "By taking donations on our behalf, you become an essential part of our mission, creating a ripple effect of generosity and support.",
+            },
+          ]}
+        />
+      </section>
+
+      {/* Programs */}
+      <section className="py-16">
+        <Programs
+          domains={{
+            heading: "FFC Domains",
+            description:
+              "Provides free .org domain names, Microsoft 365 with Outlook email, & Microsoft Teams to 501c3 charities.",
+            ctaLabel: "Learn More and Apply",
+            ctaHref: "#",
+            features: [
+              {
+                title: ".org Domain Registration",
+                forYou:
+                  "Leverage a .org domain name to enhance your charity's credibility, trustworthiness, and online presence, making it easier to attract donors and supporters",
+              },
+              { title: "Cloudflare DNS" },
+              { title: "Charity Email Address" },
+              { title: "Microsoft 365" },
+            ],
+          }}
+          hosting={{
+            heading: "FFC Hosting",
+            description:
+              "Free shared hosting for nonprofit organizations, along with WordPress installation and management, and access to our premium plugins and themes from:",
+            ctaLabel: "Learn More and Apply",
+            ctaHref: "#",
+            features: [
+              {
+                title: "Managed WordPress",
+                forYou: "Easy-to-use, flexible content management for your website",
+                forUs: "Standardized platform for efficient support and management",
+              },
+              { title: "InterServer US Based Hosting" },
+              { title: "WPMU DEV Plugins" },
+              { title: "Divi Design Builder" },
+            ],
+          }}
+          consulting={{
+            heading: "FFC Consulting",
+            description:
+              "Lorem ipsum dolor sit amet. Cum porro quia quo minima beatae rem quia perspiciatis ex velit cupiditate id tempore enim in ipsa mollitia sit veniam consequatur.",
+            ctaLabel: "Learn More and Apply",
+            ctaHref: "#",
+            features: [
+              {
+                title: "Northwest Registered Agent",
+                forYou:
+                  "Leverage Northwest Registered Agent's services to maintain compliance with state requirements, including registered agent services, nonprofit corporation filing, and initial charity IRS application.",
+                forUs:
+                  "Efficiently support charities by ensuring they meet legal requirements and train our volunteers on managing compliance, business formation processes, and IRS applications.",
+              },
+            ],
+          }}
+          partners={["VolunteerMatch", "TechSoup", "PayPal"]}
+        />
+      </section>
+
+      {/* Get Started */}
+      <section className="py-16">
+        <GetStarted />
+      </section>
+
+      {/* Volunteer with Us */}
+      <section className="py-16">
+        <VolunteerCTA />
+      </section>
+
+      {/* Results */}
+      <section className="py-16">
+        <Results
+          stats={[
+            { value: 221, label: "Organizational partners" },
+            { value: 3, label: "Total volunteers" },
+            { value: 221, label: "Organizations accessing technical assistance offerings" },
+            { value: 25, label: "Volunteer hours contributed to the organization" },
+          ]}
+        />
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16">
+        <Testimonials items={testimonials} />
+      </section>
+
+      {/* Team */}
+      <section className="py-16">
+        <Team members={team} />
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16">
+        <FAQ items={faqs} />
+      </section>
+    </main>
   );
 }

@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand tokens */
+  --ffc-primary: #2A6682;
+  --ffc-accent: #F58629;
+  --ffc-yellow: #F5C045;
+  --ffc-black: #000000;
+  --ffc-white: #FFFFFF;
+
+  /* Layout */
+  --ffc-container: 1248px;
+  --ffc-radius-xl: 20px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Tailwind design tokens mapped to brand variables */
+  --color-primary: var(--ffc-primary);
+  --color-accent: var(--ffc-accent);
+  --color-yellow: var(--ffc-yellow);
+  --color-ink: var(--ffc-black);
+  --color-paper: var(--ffc-white);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-xl: var(--ffc-radius-xl);
+  --container: var(--ffc-container);
+
+  /* Fonts (provided via next/font and CSS variables on <body>) */
+  --font-serif-display: var(--font-faustina);
+  --font-serif: var(--font-fauna-one);
+  --font-sans: var(--font-lato);
+  --font-alt: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Utilities aligned to Figma */
+.ffc-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.ffc-card {
+  @apply bg-paper border-4 rounded-xl shadow;
 }
