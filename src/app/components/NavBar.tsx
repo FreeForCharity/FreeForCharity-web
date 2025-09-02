@@ -2,6 +2,7 @@
 
 import { usePopups } from "./PopupProvider";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function NavBar() {
   const { openDonation, openVolunteer } = usePopups();
@@ -11,30 +12,30 @@ export default function NavBar() {
     <header className={`sticky top-0 z-50 ${headerBg} border-b border-black/10`}>
       <div className="ffc-container h-[92px] flex items-center justify-between">
         {/* Logo / Brand */}
-        <a href="/" className="flex items-center gap-3" aria-label="Free For Charity home">
+        <Link href="/" className="flex items-center gap-3" aria-label="Free For Charity home">
           <div className="w-[70px] h-[46px] bg-[url('/web-app-manifest-512x512.png')] bg-contain bg-left bg-no-repeat" aria-hidden />
           <span className="font-[var(--font-faustina)] text-[24px] leading-[30px] text-black hidden sm:inline">Free For Charity</span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-black">
-          <a className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="/">Home</a>
+          <Link className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="/">Home</Link>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Help for Charities</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Help for Charities</a>
             <ChevronDown />
           </div>
 
-          <button onClick={openVolunteer} className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors">Volunteer</button>
-          <button onClick={openDonation} className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors">Donate</button>
+          <button onClick={openVolunteer} className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors">Volunteer</button>
+          <button onClick={openDonation} className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors">Donate</button>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">About Us</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">About Us</a>
             <ChevronDown />
           </div>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-fauna-one)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Other</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Other</a>
             <ChevronDown />
           </div>
         </nav>
@@ -72,22 +73,22 @@ export default function NavBar() {
             </button>
           </div>
           <div className="p-4 grid gap-2">
-            <a href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-fauna-one)] text-[16px]">Home</a>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-fauna-one)] text-[16px]">Help for Charities</a>
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Home</Link>
+            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Help for Charities</a>
             <button
               onClick={() => { setMobileOpen(false); openVolunteer(); }}
-              className="text-left px-3 py-3 rounded hover:bg-black/5 font-[var(--font-fauna-one)] text-[16px]"
+              className="text-left px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]"
             >
               Volunteer
             </button>
             <button
               onClick={() => { setMobileOpen(false); openDonation(); }}
-              className="text-left px-3 py-3 rounded hover:bg-black/5 font-[var(--font-fauna-one)] text-[16px]"
+              className="text-left px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]"
             >
               Donate
             </button>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg.black/5 font-[var(--font-fauna-one)] text-[16px]">About Us</a>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-fauna-one)] text-[16px]">Other</a>
+            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">About Us</a>
+            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Other</a>
           </div>
         </nav>
       </div>

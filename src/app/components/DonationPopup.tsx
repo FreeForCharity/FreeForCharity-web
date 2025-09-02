@@ -14,6 +14,7 @@ const DEFAULT_LINKS: DonationLink[] = [
 ];
 
 export default function DonationPopup({
+  // links left for future use; suppress unused var warning by referencing length
   links = DEFAULT_LINKS,
   showToggleButton = true,
   isOpen: controlledIsOpen,
@@ -35,6 +36,9 @@ export default function DonationPopup({
   const [isCorporate, setIsCorporate] = useState<boolean>(false);
   const [isHonor, setIsHonor] = useState<boolean>(false);
   const [paymentMethod, setPaymentMethod] = useState<"card" | "bank">("card");
+
+  // noop usage to avoid unused var lint when not rendered
+  void links.length;
 
   const selectedAmount = (() => {
     const custom = Number(customAmount.replace(/[^0-9.]/g, ""));

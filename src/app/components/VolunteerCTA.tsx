@@ -2,7 +2,6 @@ type VolunteerCTAProps = {
   title?: string;
   body?: string;
   ctaLabel?: string;
-  ctaHref?: string;
   className?: string;
 };
 
@@ -12,7 +11,6 @@ export default function VolunteerCTA({
   title = "Volunteer with Us",
   body = "Your time and skills can create a lasting impact. Whether you're assisting with outreach, providing technical expertise, or supporting our programs, your contributions are invaluable to our mission.",
   ctaLabel = "Volunteer Now",
-  ctaHref = "#volunteer",
   className,
 }: VolunteerCTAProps) {
   return (

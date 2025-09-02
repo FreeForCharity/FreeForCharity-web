@@ -152,13 +152,13 @@ export default function VolunteerPopup({ showToggleButton = true, isOpen: contro
                     You can create a measurable impact to the success of charities nationwide.
                   </div>
                   <p className="mt-3 font-[var(--font-fauna-one)] text-[15px] leading-[22px] text-black">
-                    Every organization's success ultimately falls on the support it receives. Free For Charity provides world-class training programs while helping charities across the United States.
+                    Every organization&#39;s success ultimately falls on the support it receives. Free For Charity provides world-class training programs while helping charities across the United States.
                   </p>
                   <p className="mt-4 font-[var(--font-lato)] text-[15px] leading-[22px] text-black">
                     From the day-to-day costs of running servers and websites to paying for software that powers our training programs, your time and skills make a direct difference.
                   </p>
                   <p className="mt-3 font-[var(--font-lato)] text-[15px] leading-[22px] text-black">
-                    In addition to financial support, we rely on skilled volunteers and gifts in kind. Explore the opportunities and let us know how you'd like to help.
+                    In addition to financial support, we rely on skilled volunteers and gifts in kind. Explore the opportunities and let us know how you&#39;d like to help.
                   </p>
 
                   {/* Simple interest form */}
