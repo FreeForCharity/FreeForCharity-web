@@ -13,7 +13,14 @@ export default function NavBar() {
       <div className="ffc-container h-[92px] flex items-center justify-between">
         {/* Logo / Brand */}
         <Link href="/" className="flex items-center gap-3" aria-label="Free For Charity home">
-          <div className="w-[70px] h-[46px] bg-[url('/web-app-manifest-512x512.png')] bg-contain bg-left bg-no-repeat" aria-hidden />
+          <img
+            src="/web-app-manifest-512x512.png"
+            alt="Free For Charity logo"
+            width={70}
+            height={46}
+            className="w-[70px] h-[46px] object-contain"
+            loading="eager"
+          />
           <span className="font-[var(--font-faustina)] text-[24px] leading-[30px] text-black hidden sm:inline">Free For Charity</span>
         </Link>
 

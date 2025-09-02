@@ -36,7 +36,16 @@ export default function Home() {
               </div>
             </div>
             <div className="grid place-items-center">
-              <div className="w-[260px] h-[260px] md:w-[383px] md:h-[383px] rounded-full bg-white shadow-[0_6px_32px_rgba(0,0,0,0.16)] bg-[url('/web-app-manifest-512x512.png')] bg-no-repeat bg-center bg-contain" />
+              <div className="w-[260px] h-[260px] md:w-[383px] md:h-[383px] rounded-full bg-white shadow-[0_6px_32px_rgba(0,0,0,0.16)] flex items-center justify-center overflow-hidden">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/web-app-manifest-512x512.png`}
+                  alt="Free For Charity mark"
+                  className="max-w-full max-h-full object-contain"
+                  width={383}
+                  height={383}
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
