@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Free For Charity website built with Next.js App Router.
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Free For Charity connects students, professionals, and businesses with nonprofits to reduce operating costs and increase impact. This site showcases programs, enables donations, and lets visitors volunteer via global popups.
 
+## Tech Stack
+
+- Next.js (App Router, TypeScript)
+- Tailwind-style utility classes for styling
+- next/font for Google fonts (Faustina, Fauna One, Lato, Inter)
+
+## Local Development
+
+1) Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2) Run the dev server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- Global popups for Donate and Volunteer
+  - Context provider: `src/app/components/PopupProvider.tsx`
+  - Mounted via: `src/app/components/PopupsRootClient.tsx`
+  - Open from anywhere using `usePopups()` or shared buttons:
+    - `DonateButton.tsx`, `VolunteerButton.tsx`
 
-To learn more about Next.js, take a look at the following resources:
+- Mobile slide-out navigation
+  - `src/app/components/NavBar.tsx`
+  - Hamburger opens a right-side panel with overlay; actions wired to popups
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- SEO
+  - Global metadata in `src/app/layout.tsx` (title template, description, OG/Twitter, robots)
+  - `src/app/sitemap.ts` and `src/app/robots.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+- `src/app/page.tsx` – Home page
+- `src/app/components/*` – UI components and popups
+- `src/app/data/*` – Static content (FAQs, team, testimonials)
+- `public/*` – Static assets (icons, images)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Common Tasks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Update homepage content: edit `src/app/page.tsx`
+- Change CTA copy: update text in components under `src/app/components`
+- Adjust SEO: edit `metadata` in `src/app/layout.tsx`
+
+## Deployment
+
+Any standard Next.js hosting works (Vercel recommended). Build and start:
+```bash
+npm run build
+npm start
+```
+
+## Notes
+
+- Popups are globally available modals; avoid fixed floating buttons. Use `DonateButton`/`VolunteerButton` or `usePopups()` to open.
+- If you add new routes, consider updating `sitemap.ts` accordingly.

@@ -47,9 +47,11 @@ const OPPORTUNITIES: Opportunity[] = [
   },
 ];
 
-export default function VolunteerPopup() {
+export default function VolunteerPopup({ showToggleButton = true, isOpen: controlledIsOpen, onClose }: { showToggleButton?: boolean; isOpen?: boolean; onClose?: () => void }) {
   const [isMounted, setIsMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const isControlled = typeof controlledIsOpen === "boolean";
+  const [localIsOpen, setLocalIsOpen] = useState(false);
+  const isOpen = isControlled ? (controlledIsOpen as boolean) : localIsOpen;
 
   // Simple form state
   const [firstName, setFirstName] = useState("");
@@ -64,9 +66,10 @@ export default function VolunteerPopup() {
 
   useEffect(() => {
     setIsMounted(true);
-    const open = () => setIsOpen(true);
+    if (isControlled) return;
+    const open = () => setLocalIsOpen(true);
     const syncFromHash = () => {
-      if (window.location.hash === "#volunteer") setIsOpen(true);
+      if (window.location.hash === "#volunteer") setLocalIsOpen(true);
     };
     syncFromHash();
     window.addEventListener("open-volunteer-popup", open as EventListener);
@@ -75,34 +78,36 @@ export default function VolunteerPopup() {
       window.removeEventListener("open-volunteer-popup", open as EventListener);
       window.removeEventListener("hashchange", syncFromHash);
     };
-  }, []);
+  }, [isControlled]);
 
   if (!isMounted) return null;
 
   return (
     <>
       {/* Toggle button (optional quick access) */}
-      <button
-        aria-label="Open volunteer popup"
-        onClick={() => {
-          if (window.location.hash !== "#volunteer") {
-            window.location.hash = "volunteer";
-          } else {
-            setIsOpen(true);
-          }
-        }}
-        className="fixed bottom-5 right-28 z-40 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-white shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent"
-      >
-        <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-        <span className="font-[var(--font-lato)] text-[16px]">Volunteer</span>
-      </button>
+      {!isControlled && showToggleButton && (
+        <button
+          aria-label="Open volunteer popup"
+          onClick={() => {
+            if (window.location.hash !== "#volunteer") {
+              window.location.hash = "volunteer";
+            } else {
+              setLocalIsOpen(true);
+            }
+          }}
+          className="fixed bottom-5 right-28 z-40 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-white shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <span className="inline-block h-2 w-2 rounded-full bg-accent" />
+          <span className="font-[var(--font-lato)] text-[16px]">Volunteer</span>
+        </button>
+      )}
 
       {isOpen && (
         <div
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-50 grid place-items-center bg-black/50 p-4"
-          onClick={() => setIsOpen(false)}
+          onClick={() => (isControlled ? onClose?.() : setLocalIsOpen(false))}
         >
           <div
             className="ffc-card w-full max-w-5xl bg-paper border-4 border-primary rounded-xl shadow-xl max-h-[90vh] overflow-y-auto"
@@ -121,9 +126,13 @@ export default function VolunteerPopup() {
               <button
                 aria-label="Close volunteer popup"
                 onClick={() => {
-                  setIsOpen(false);
-                  if (window.location.hash === "#volunteer") {
-                    history.replaceState(null, "", window.location.pathname + window.location.search);
+                  if (isControlled) {
+                    onClose?.();
+                  } else {
+                    setLocalIsOpen(false);
+                    if (window.location.hash === "#volunteer") {
+                      history.replaceState(null, "", window.location.pathname + window.location.search);
+                    }
                   }
                 }}
                 className="rounded-full p-1 text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer transition-transform hover:scale-110"

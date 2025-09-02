@@ -15,10 +15,18 @@ const DEFAULT_LINKS: DonationLink[] = [
 
 export default function DonationPopup({
   links = DEFAULT_LINKS,
+  showToggleButton = true,
+  isOpen: controlledIsOpen,
+  onClose,
 }: {
   links?: DonationLink[];
+  showToggleButton?: boolean;
+  isOpen?: boolean;
+  onClose?: () => void;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const isControlled = typeof controlledIsOpen === "boolean";
+  const [localIsOpen, setLocalIsOpen] = useState(false);
+  const isOpen = isControlled ? (controlledIsOpen as boolean) : localIsOpen;
   const [isMounted, setIsMounted] = useState(false);
   const [frequency, setFrequency] = useState<"one-time" | "monthly" | "yearly">("one-time");
   const [presetAmount, setPresetAmount] = useState<number | null>(150);
@@ -36,11 +44,11 @@ export default function DonationPopup({
 
   useEffect(() => {
     setIsMounted(true);
-    const handleOpen = () => setIsOpen(true);
+    if (isControlled) return;
+    const handleOpen = () => setLocalIsOpen(true);
     const syncFromHash = () => {
-      if (window.location.hash === "#donate") setIsOpen(true);
+      if (window.location.hash === "#donate") setLocalIsOpen(true);
     };
-    // Initial check for deep links
     syncFromHash();
     window.addEventListener("open-donation-popup", handleOpen as EventListener);
     window.addEventListener("hashchange", syncFromHash);
@@ -48,28 +56,30 @@ export default function DonationPopup({
       window.removeEventListener("open-donation-popup", handleOpen as EventListener);
       window.removeEventListener("hashchange", syncFromHash);
     };
-  }, []);
+  }, [isControlled]);
 
   if (!isMounted) return null;
 
   return (
     <>
       {/* Toggle button */}
-      <button
-        aria-label="Open donation popup"
-        onClick={() => {
-          // Use hash to unify behavior across server/client links
-          if (window.location.hash !== "#donate") {
-            window.location.hash = "donate";
-          } else {
-            setIsOpen(true);
-          }
-        }}
-        className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-white shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent"
-      >
-        <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-        <span className="font-[var(--font-lato)] text-[16px]">Donate</span>
-      </button>
+      {!isControlled && showToggleButton && (
+        <button
+          aria-label="Open donation popup"
+          onClick={() => {
+            // Use hash to unify behavior across server/client links
+            if (window.location.hash !== "#donate") {
+              window.location.hash = "donate";
+            } else {
+              setLocalIsOpen(true);
+            }
+          }}
+          className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-white shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <span className="inline-block h-2 w-2 rounded-full bg-accent" />
+          <span className="font-[var(--font-lato)] text-[16px]">Donate</span>
+        </button>
+      )}
 
       {/* Overlay */}
       {isOpen && (
@@ -77,7 +87,7 @@ export default function DonationPopup({
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-50 grid place-items-center bg-black/50 p-4"
-          onClick={() => setIsOpen(false)}
+          onClick={() => (isControlled ? onClose?.() : setLocalIsOpen(false))}
         >
           <div
             className="ffc-card w-full max-w-5xl bg-paper border-4 border-primary rounded-xl shadow-xl max-h-[90vh] overflow-y-auto"
@@ -95,9 +105,13 @@ export default function DonationPopup({
               <button
                 aria-label="Close donation popup"
                 onClick={() => {
-                  setIsOpen(false);
-                  if (window.location.hash === "#donate") {
-                    history.replaceState(null, "", window.location.pathname + window.location.search);
+                  if (isControlled) {
+                    onClose?.();
+                  } else {
+                    setLocalIsOpen(false);
+                    if (window.location.hash === "#donate") {
+                      history.replaceState(null, "", window.location.pathname + window.location.search);
+                    }
                   }
                 }}
                 className="rounded-full p-1 text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer transition-transform hover:scale-110"

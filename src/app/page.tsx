@@ -9,6 +9,8 @@ import VolunteerCTA from "./components/VolunteerCTA";
 import GetStarted from "./components/GetStarted";
 import Programs from "./components/Programs";
 import EndowmentFeatures from "./components/EndowmentFeatures";
+import DonateButton from "./components/DonateButton";
+import VolunteerButton from "./components/VolunteerButton";
 
 export default function Home() {
   return (
@@ -26,12 +28,8 @@ export default function Home() {
                 Connecting Students, Professionals, & Businesses with Charities in Need
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="#volunteer" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
-                  Volunteer
-                </a>
-                <a href="#donate" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
-                  Donate
-                </a>
+                <VolunteerButton />
+                <DonateButton />
                 <a href="#programs" className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-6 py-3 text-[20px] font-[var(--font-lato)]">
                   Our Programs
                 </a>
@@ -57,9 +55,7 @@ export default function Home() {
             This charity for charities seeks to replace as many functions as possible that current nonprofits pay for to for-profit companies with free or at cost work from our campus, on site projects, or partnerships with other entities.
           </p>
           <div className="mt-6">
-            <a href="#donate" className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-6 py-3 text-[20px] font-[var(--font-lato)]">
-              Donate to Free For Charity
-            </a>
+            <DonateButton className="inline-flex items-center justify-center rounded-[27px] bg-primary text-white px-6 py-3 text-[20px] font-[var(--font-lato)] cursor-pointer hover:brightness-110 transition">Donate to Free For Charity</DonateButton>
           </div>
         </div>
       </section>

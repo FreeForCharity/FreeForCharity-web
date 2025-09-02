@@ -6,6 +6,8 @@ type VolunteerCTAProps = {
   className?: string;
 };
 
+import VolunteerButton from "./VolunteerButton";
+
 export default function VolunteerCTA({
   title = "Volunteer with Us",
   body = "Your time and skills can create a lasting impact. Whether you're assisting with outreach, providing technical expertise, or supporting our programs, your contributions are invaluable to our mission.",
@@ -22,9 +24,10 @@ export default function VolunteerCTA({
             {body}
           </p>
           <div className="mt-6">
-            <a href={ctaHref} className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-8 py-4 text-[20px] font-[var(--font-lato)]">
+            {/* Use shared volunteer button for consistent behavior/styles */}
+            <VolunteerButton className="inline-flex items-center justify-center rounded-[27px] bg-white text-[#113563] px-8 py-4 text-[20px] font-[var(--font-lato)] cursor-pointer hover:brightness-110 transition">
               {ctaLabel}
-            </a>
+            </VolunteerButton>
           </div>
         </div>
       </div>
