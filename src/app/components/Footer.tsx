@@ -81,28 +81,54 @@ export default function Footer() {
                 <Mail size={40} className="text-accent shrink-0" aria-hidden />
                 <div>
                   <p className="text-[20px] leading-[25px]">Email</p>
-                  <p className="text-[17px] leading-[21px]">clarkemoyer@freeforcharity.org</p>
+                  <p className="text-[17px] leading-[21px]">
+                    <a href="mailto:clarkemoyer@freeforcharity.org" className="hover:underline text-white hover:text-accent transition-colors">
+                      clarkemoyer@freeforcharity.org
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <Phone size={40} className="text-accent shrink-0" aria-hidden />
                 <div>
                   <p className="text-[20px] leading-[25px]">Call Us Today</p>
-                  <p className="text-[17px] leading-[21px]">(520) 222-8104</p>
+                  <p className="text-[17px] leading-[21px]">
+                    <a href="tel:+15202228104" className="hover:underline text-white hover:text-accent transition-colors">
+                      (520) 222-8104
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin size={40} className="text-accent shrink-0" aria-hidden />
                 <div>
                   <p className="text-[20px] leading-[25px]">Main Address</p>
-                  <p className="text-[17px] leading-[21px]">4030 Wake Forrest Road Suite 349, Raleigh, NC 27609</p>
+                  <p className="text-[17px] leading-[21px]">
+                    <a 
+                      href="https://maps.google.com/maps?q=4030+Wake+Forrest+Road+Suite+349,+Raleigh,+NC+27609" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:underline text-white hover:text-accent transition-colors"
+                    >
+                      4030 Wake Forrest Road Suite 349, Raleigh, NC 27609
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin size={40} className="text-accent shrink-0" aria-hidden />
                 <div>
                   <p className="text-[20px] leading-[25px]">PA Office Address</p>
-                  <p className="text-[17px] leading-[21px]">301 Science Park Road Suite 119, State College, PA 16803</p>
+                  <p className="text-[17px] leading-[21px]">
+                    <a 
+                      href="https://maps.google.com/maps?q=301+Science+Park+Road+Suite+119,+State+College,+PA+16803" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:underline text-white hover:text-accent transition-colors"
+                    >
+                      301 Science Park Road Suite 119, State College, PA 16803
+                    </a>
+                  </p>
                 </div>
               </div>
 
