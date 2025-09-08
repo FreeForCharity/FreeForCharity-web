@@ -8,7 +8,7 @@ export default function TermsOfService() {
           <p><strong>Effective Date:</strong> January 1, 2024</p>
           
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">Acceptance of Terms</h2>
-          <p>By accessing and using Free For Charity's services, you accept and agree to be bound by the terms and provision of this agreement.</p>
+          <p>By accessing and using Free For Charity&apos;s services, you accept and agree to be bound by the terms and provision of this agreement.</p>
 
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">Eligibility</h2>
           <p>Our services are available to qualified 501(c)(3) nonprofit organizations in good standing. Organizations must meet our eligibility requirements to receive services.</p>
