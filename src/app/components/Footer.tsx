@@ -36,8 +36,8 @@ export default function Footer() {
           <div>
             <h3 className="font-[var(--font-faustina)] text-[24px] leading-[30px] mb-4">Quick Links</h3>
             <ul className="space-y-2 font-[var(--font-faustina)] text-[17px] leading-[21px]">
-              <li><a href="#" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">About Us</a></li>
+              <li><a href="#home" className="hover:underline">Home</a></li>
+              <li><a href="#about" className="hover:underline">About Us</a></li>
               <li>
                 <a
                   href="#donate"
@@ -56,10 +56,10 @@ export default function Footer() {
                   Volunteer
                 </a>
               </li>
-              <li><a href="#" className="hover:underline">Help For Charities</a></li>
-              <li><a href="#" className="hover:underline">Pre-501c3 Onboarding</a></li>
-              <li><a href="#" className="hover:underline">501c3 Onboarding</a></li>
-              <li><a href="#" className="hover:underline">Supported Charity Login</a></li>
+              <li><a href="#programs" className="hover:underline">Help For Charities</a></li>
+              <li><a href="#get-started" className="hover:underline">Pre-501c3 Onboarding</a></li>
+              <li><a href="#get-started" className="hover:underline">501c3 Onboarding</a></li>
+              <li><a href="mailto:clarkemoyer@freeforcharity.org" className="hover:underline">Supported Charity Login</a></li>
             </ul>
           </div>
 
@@ -67,9 +67,9 @@ export default function Footer() {
           <div>
             <h3 className="font-[var(--font-fauna-one)] text-[24px] leading-[30px] mb-4">Free For Charity Policy</h3>
             <ul className="space-y-2 font-[var(--font-fauna-one)] text-[17px] leading-[21px]">
-              <li><a href="#" className="hover:underline">Donation Policy</a></li>
-              <li><a href="#" className="hover:underline">Privacy Policy</a></li>
-              <li><a href="#" className="hover:underline">Terms of Service</a></li>
+              <li><a href="/donation-policy" className="hover:underline">Donation Policy</a></li>
+              <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="hover:underline">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -134,16 +134,16 @@ export default function Footer() {
 
               {/* Social icons */}
               <div className="pt-2 flex items-center gap-2.5">
-                <a href="#" aria-label="Facebook" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
+                <a href="https://facebook.com/freeforcharity" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
                   <Facebook className="w-5 h-5 text-white" />
                 </a>
-                <a href="#" aria-label="Twitter" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
+                <a href="https://twitter.com/freeforcharity" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
                   <Twitter className="w-5 h-5 text-white" />
                 </a>
-                <a href="#" aria-label="Instagram" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
+                <a href="https://instagram.com/freeforcharity" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
+                <a href="https://linkedin.com/company/freeforcharity" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex w-10 h-10 items-center justify-center rounded-md bg-accent">
                   <Linkedin className="w-5 h-5 text-white" />
                 </a>
               </div>
@@ -160,9 +160,9 @@ export default function Footer() {
             All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | Hosting Supported by interserver.net
           </p>
           <div className="flex items-center gap-6 font-[var(--font-lato)] text-[16px] leading-[19px]">
-            <a href="#" className="hover:underline">Terms of use</a>
-            <a href="#" className="hover:underline">Privacy policy</a>
-            <a href="#donate" className="hover:underline">Donation policy</a>
+            <a href="/terms-of-service" className="hover:underline">Terms of use</a>
+            <a href="/privacy-policy" className="hover:underline">Privacy policy</a>
+            <a href="/donation-policy" className="hover:underline">Donation policy</a>
           </div>
         </div>
       </div>

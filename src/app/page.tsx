@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero / Landing */}
-      <section className="bg-primary text-white relative overflow-hidden">
+      <section id="home" className="bg-primary text-white relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute left-[-15%] md:left-[-10%] bottom-[14rem] md:bottom-[18rem] w-[220%] h-6 md:h-8 bg-white rotate-[-22deg] z-0" />
         <div className="ffc-container relative z-10 py-16 md:py-20">
           <div className="grid gap-10 md:grid-cols-2 items-center">
@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       {/* Support CTA */}
-      <section className="py-16">
+      <section id="about" className="py-16">
         <div className="ffc-container text-center">
           <h2 className="font-[var(--font-faustina)] text-[40px] leading-[48px]">
             Free For Charity has a simple mission with broad implications
@@ -105,7 +105,7 @@ export default function Home() {
             description:
               "Provides free .org domain names, Microsoft 365 with Outlook email, & Microsoft Teams to 501c3 charities.",
             ctaLabel: "Learn More and Apply",
-            ctaHref: "#",
+            ctaHref: "#get-started",
             features: [
               {
                 title: ".org Domain Registration",
@@ -136,7 +136,7 @@ export default function Home() {
             description:
               "Free shared hosting for nonprofit organizations, along with WordPress installation and management, and access to our premium plugins and themes from:",
             ctaLabel: "Learn More and Apply",
-            ctaHref: "#",
+            ctaHref: "#get-started",
             features: [
               {
                 title: "Managed WordPress",
@@ -169,7 +169,7 @@ export default function Home() {
             description:
               "Lorem ipsum dolor sit amet. Cum porro quia quo minima beatae rem quia perspiciatis ex velit cupiditate id tempore enim in ipsa mollitia sit veniam consequatur.",
             ctaLabel: "Learn More and Apply",
-            ctaHref: "#",
+            ctaHref: "#get-started",
             features: [
               {
                 title: "Northwest Registered Agent",
@@ -201,17 +201,17 @@ export default function Home() {
       </section>
 
       {/* Get Started */}
-      <section className="py-16">
+      <section id="get-started" className="py-16">
         <GetStarted />
       </section>
 
       {/* Volunteer with Us */}
-      <section className="py-16">
+      <section id="volunteer" className="py-16">
         <VolunteerCTA />
       </section>
 
       {/* Results */}
-      <section className="py-16">
+      <section id="results" className="py-16">
         <Results
           stats={[
             { value: 221, label: "Organizational partners" },
@@ -223,17 +223,17 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16">
+      <section id="testimonials" className="py-16">
         <Testimonials items={testimonials} />
       </section>
 
       {/* Team */}
-      <section className="py-16">
+      <section id="team" className="py-16">
         <Team members={team} />
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
+      <section id="faq" className="py-16">
         <FAQ items={faqs} />
       </section>
     </main>

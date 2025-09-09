@@ -29,7 +29,7 @@ export default function NavBar() {
           <Link className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="/">Home</Link>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Help for Charities</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#programs">Help for Charities</a>
             <ChevronDown />
           </div>
 
@@ -37,12 +37,12 @@ export default function NavBar() {
           <button onClick={openDonation} className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors">Donate</button>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">About Us</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#about">About Us</a>
             <ChevronDown />
           </div>
 
           <div className="flex items-center gap-1">
-            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Other</a>
+            <a className="font-[var(--font-lato)] text-[15px] leading-[18px] cursor-pointer hover:text-primary hover:underline underline-offset-4 transition-colors" href="#faq">Other</a>
             <ChevronDown />
           </div>
         </nav>
@@ -81,7 +81,7 @@ export default function NavBar() {
           </div>
           <div className="p-4 grid gap-2">
             <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Home</Link>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Help for Charities</a>
+            <a href="#programs" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Help for Charities</a>
             <button
               onClick={() => { setMobileOpen(false); openVolunteer(); }}
               className="text-left px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]"
@@ -94,8 +94,8 @@ export default function NavBar() {
             >
               Donate
             </button>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">About Us</a>
-            <a href="#" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Other</a>
+            <a href="#about" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">About Us</a>
+            <a href="#faq" onClick={() => setMobileOpen(false)} className="block px-3 py-3 rounded hover:bg-black/5 font-[var(--font-lato)] text-[16px]">Other</a>
           </div>
         </nav>
       </div>
